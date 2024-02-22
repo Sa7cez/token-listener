@@ -5,8 +5,11 @@ export const config: any = {
   // Send event value or full checked balance
   checkBalance: true,
 
+  // Send immediately (run before events)
+  sendImmediately: false,
+
   // Multiply gas price?
-  gasMultiplier: 1.5,
+  gasMultiplier: 1.25,
 
   // Set RPC URLs for each needed chain
   RPCS: {

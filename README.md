@@ -1,6 +1,6 @@
 ## Token listener and sender
 
-Listen token "Transfers events" by contract address and send it to yout another wallets.
+Listen token "Transfers events" by contract address and send it to your another wallets.
 Target chain will be selected automatically.
 
 Supported chains: arbitrum, base, bsc, goerli, linea, mainnet, optimism, polygon, zkSync

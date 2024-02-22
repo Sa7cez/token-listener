@@ -35,7 +35,7 @@ const precheck = async () => {
       if (block) log(c.green(`${chain.name} latest block:`), block)
       else {
         delete config.RPCS[chain.network]
-        log(c.red(`${chain.name} RPC: ${publicClient.transport.url} invalid rpc url`))
+        log(chain.name, c.red(`invalid RPC url :(`))
       }
     })
   )
@@ -120,7 +120,7 @@ const workflow = async (keys: Hex[], mode: Mode, contractAddress: Address, chain
       decimals: await contract.read.decimals()
     }
 
-    for (const account of accounts) await work(account, mode, 0n, token, contractAddress)
+    if (config.sendImmediately) for (const account of accounts) await work(account, mode, 0n, token, contractAddress)
 
     const unwatch = publicClient.watchContractEvent({
       address: contractAddress,
