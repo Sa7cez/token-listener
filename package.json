@@ -1,0 +1,31 @@
+{
+  "name": "token-listener",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx index.ts listen",
+    "serve": "npm run start",
+    "listen": "npx tsx index.ts listen",
+    "dev": "tsx watch --clear-screen=false index.ts listen",
+    "postinstall": "npm run start",
+    "build": "npx tsc"
+  },
+  "keywords": [],
+  "author": "Salce",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "depcheck": "^1.4.7",
+    "tsx": "^4.6.2",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.202",
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.4",
+    "lodash": "^4.17.21",
+    "viem": "^1.20.0"
+  }
+}
