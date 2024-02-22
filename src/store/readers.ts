@@ -75,7 +75,7 @@ export const readTwitterAccounts = () =>
 
 const exampleKey = ''
 export const readKeysOrAddresses = (filename = 'keys.txt') => {
-  const keys = [...new Set(readAccounts<string[]>(filename, filterValidKeys, exampleKey))]
+  const keys = [...new Set(readAccounts<string[]>(filename, filterValidKeys, exampleKey))].map((key) => (!key.startsWith('0x') ? `0x${key}` : key))
   writeAccounts(filename, keys)
   return keys
 }
