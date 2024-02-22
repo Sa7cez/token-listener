@@ -105,7 +105,7 @@ const workflow = async (keys: Hex[], mode: Mode, contractAddress: Address, chain
         })
     )
 
-    const addressesForTracking = accounts.map((i) => checksumAddress(i.address))
+    const addressesForTracking = accounts.map((i) => checksumAddress(i.address).toLowerCase())
     log(c.blue('Listen for events on contract for addresses:'), '\n' + addressesForTracking.join(', '), '\n')
 
     const publicClient = createPublicClient({ chain, transport: http(config.RPCS[chain.network]) })
@@ -131,7 +131,7 @@ const workflow = async (keys: Hex[], mode: Mode, contractAddress: Address, chain
           if (!args.to || !args.from || !args.value) return
 
           try {
-            if (addressesForTracking.includes(args.to)) {
+            if (addressesForTracking.includes(String(args.to).toLowerCase())) {
               log(c.green(`${args.to}: received ${c.yellow(formatUnits(args.value, token.decimals))} ${token.symbol} from ${args.from}!`))
               work(accounts.find((i) => isAddressEqual(i.address, args.to as Address))!, mode, args.value, token, contractAddress)
             } else log(c.grey(`${args.to}: received ${c.yellow(formatUnits(args.value, token.decimals))} ${token.symbol} from ${args.from}`))
