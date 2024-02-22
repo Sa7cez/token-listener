@@ -5,7 +5,11 @@ Target chain will be selected automatically.
 
 Supported chains: arbitrum, base, bsc, goerli, linea, mainnet, optimism, polygon, zkSync
 
-## Files
+## Prepare
+
+Rename `.env.example` to `.env` if you want Alchemy or Ankr private node
+
+Fill files (or start script for creating empty files):
 
 - `credentials/keys.txt` - wallet for listening private keys
 - `credentials/receivers.txt` - addresses for receiving 1 by 1 per line(or random/first receiver)
